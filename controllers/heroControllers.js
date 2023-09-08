@@ -53,19 +53,18 @@ exports.update = async (req,res) => {
     // } catch (error){
     //     res.status(500).json(error, `Can not update a hero with id=${id} ${id}`)
     // }
-    
+
 };
 
 exports.deleteOne = async (req,res) =>{
 
-   
     const id = req.params.id
     
     try{
         const Hero = await hero.findByIdAndRemove(id);
-        res.status(404).send({msg: `hero deleted successfully`})
+        res.status(201).send({msg: `hero deleted successfully`})
     }catch(error) {
-        res.status(500).send({msg: `hero could not be deleted`})
+        res.status(404).send({msg: `hero could not be deleted`})
     }
     
 }
