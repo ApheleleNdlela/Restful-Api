@@ -68,3 +68,16 @@ exports.deleteOne = async (req,res) =>{
     }
     
 }
+
+exports.getOne = async (req,res) => {
+
+    const id = req.params.id
+
+    try{
+
+        const Hero = await hero.findById(id)
+        res.status(201).json(Hero)
+    }catch (error) {
+        res.status(404).send({error: `hero with id=${id}, was not found, please recheck the id`})
+    }
+}
