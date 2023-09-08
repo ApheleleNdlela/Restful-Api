@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const heroSchema = new mongoose.Schema({
 
     fname: {type: String, 
-        require: true},
+        required: true},
     strength: {type: String, 
-        require: true},
+        required: true},
     weakness: {type: String, 
-        require: true}
+        required: true}
 });
 
 module.exports = mongoose.model('hero', heroSchema);
